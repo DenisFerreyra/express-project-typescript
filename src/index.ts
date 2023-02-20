@@ -16,8 +16,13 @@ app.use(express.json()); //middleware que transforma la req.body en un json
 
 //Aquí se le indica el usuario (denis), la contraseña (password), el host (localhost), el puerto (27012)
 //luego la base de datos (miapp) y por último el tipo de usuario (admin)
+// mongoose.connect(
+//   "mongodb://denis:password@localhost:27017/miapp?authSource=admin"
+// );
+//Aquí cambiamos localhost por testMongo, que es el nombre que tiene la db internamente dentro de mongo,
+//Esto lo debemos hacer suponiendo que tenemos una red que conecta nuestros contenedores
 mongoose.connect(
-  "mongodb://denis:password@localhost:27017/miapp?authSource=admin"
+  "mongodb://denis:password@testmongo:27017/miapp?authSource=admin"
 );
 
 const PORT = 3000;
