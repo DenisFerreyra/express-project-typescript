@@ -19,10 +19,10 @@ app.use(express.json()); //middleware que transforma la req.body en un json
 // mongoose.connect(
 //   "mongodb://denis:password@localhost:27017/miapp?authSource=admin"
 // );
-//Aquí cambiamos localhost por testMongo, que es el nombre que tiene la db internamente dentro de mongo,
+//Aquí cambiamos localhost por mondongodb, que es el nombre que tiene la db internamente dentro de mongo,
 //Esto lo debemos hacer suponiendo que tenemos una red que conecta nuestros contenedores
 mongoose.connect(
-  "mongodb://denis:password@testmongo:27017/miapp?authSource=admin"
+  "mongodb://denis:password@mondongodb:27017/miapp?authSource=admin"
 );
 
 const PORT = 3000;
