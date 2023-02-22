@@ -11,7 +11,7 @@ const Animal = mongoose.model(
   })
 );
 
-const app = express();
+const app = express();  //Se instancia express
 app.use(express.json()); //middleware que transforma la req.body en un json
 
 //Aquí se le indica el usuario (denis), la contraseña (password), el host (localhost), el puerto (27012)
