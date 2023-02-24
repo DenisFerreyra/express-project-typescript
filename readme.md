@@ -9,3 +9,5 @@ npm install typescript -D               //instalado typescript como dependencia 
 Luego en el package.json se añade un script "tsc": "tsc" para ejecutar el binario de tsc, que sirve para realizar la compilación desde TS a JS.
 
 Luego se debe colocar npm run tsc -- --init //colocamos el primer -- para npm run y el segundo --init es para el tsc, esto creará el tsconfig.json
+
+También se instaló ts-node-dev, que es como un nodemon pero mejorado para Typescript, se debe agregar ts-node-dev src/index.ts para iniciar a través del script "dev"

@@ -1,6 +1,8 @@
 //Libraries
-import express from "express";
+import express from "express"; //A veces aparte de instalar las librerías, a veces es necesario instalar los "@types" (siempre como dependencia de desarrollo -D)
 import mongoose from "mongoose";
+//Importación de rutas
+import videogamesRoutes from "./routes/videogames";
 
 //Para trabajar con docker crearemos un modelo de mongo con la siguientes características
 const Animal = mongoose.model(
@@ -11,7 +13,7 @@ const Animal = mongoose.model(
   })
 );
 
-const app = express();  //Se instancia express
+const app = express(); //Se instancia express
 app.use(express.json()); //middleware que transforma la req.body en un json
 
 //Aquí se le indica el usuario (denis), la contraseña (password), el host (localhost), el puerto (27012)
@@ -45,6 +47,9 @@ app.get("/crear-animal", async (_req, res) => {
   await Animal.create({ tipo: "Perro", estado: "Nuevo 0km" });
   return res.send("Creación correcta.");
 });
+
+//Acá comenzamos con la re-edición de el PI de videojuegos
+app.use("/api/videogames", videogamesRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`); //Invocamos al método listen de app para levantar el servidor en el puerto indicado
