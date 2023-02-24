@@ -4,8 +4,7 @@ import { getVideogames } from "../services/videogames";
 const router = express.Router();
 
 router.get("/", async (_req, res) => {
-  const videogames = await getVideogames();
-  res.json(videogames);
+  res.send(await getVideogames());
 });
 
 router.get("/:id", (req, res) => {
