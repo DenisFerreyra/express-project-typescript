@@ -7,5 +7,9 @@ const videogames: Videogame[] = videogamesData as Videogame[];
 
 export const getVideogames = async () => {
   return videogames;
-}; 
+};
 //acá normalmente typescript va a inferir los tipos, pero se soluciona creando interfaces o typos
+
+export const getVideoGame = async (id: number) => {
+  return videogames.find((videogame) => videogame.id === id);
+};

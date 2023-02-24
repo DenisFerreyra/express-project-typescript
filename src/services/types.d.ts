@@ -10,6 +10,7 @@ export type Genre =
 
 //La interface es mas para cuando es un objeto y se puede extender para añadir propiedades mediante la propiedad "extends"
 export interface Videogame {
+  id: number;
   Game: string;
   GameLink: string;
   Year: number;

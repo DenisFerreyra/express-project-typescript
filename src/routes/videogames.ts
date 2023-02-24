@@ -1,5 +1,5 @@
 import express from "express"; //import y export son ecma script modules, si fuese requiere o module.exports serían commonJS
-import { getVideogames } from "../services/videogames";
+import { getVideogames, getVideoGame } from "../services/videogames";
 
 const router = express.Router();
 
@@ -7,11 +7,13 @@ router.get("/", async (_req, res) => {
   res.send(await getVideogames());
 });
 
-router.get("/:id", (req, res) => {
+router.get("/:id", async (req, res) => {
   const { id } = req.params;
-  const { nombre } = req.query;
-  console.log("Por id");
-  res.send(`El id es ${id} y el nombre es: ${nombre}`);
+  res.send(
+    (await getVideoGame(parseInt(id))) || {
+      message: "No existe el juego especificado.",
+    }
+  );
 });
 
 export default router;
