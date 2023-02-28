@@ -3,6 +3,18 @@ import { getVideogames, getVideoGame } from "../services/videogames";
 
 const router = express.Router();
 
+//Este es un ejemplo de un middleware, aquí iría primero
+router.use((_res, _req, next) => {
+  console.log("Entró aquí: 1er middleware");
+  next();
+});
+
+//Este es otro middleware, aquí iría segundo, pasa por los middlwares por el next()
+router.use((_res, _req, next) => {
+  console.log("Entró aquí: 2do middleware");
+  next();
+});
+
 router.get("/", async (_req, res) => {
   res.send(await getVideogames());
 });
